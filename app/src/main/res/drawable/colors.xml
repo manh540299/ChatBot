@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <color name="purple_200">#FA3C00</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="c_bg_app">#E5E5E5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="c_gray_2">#FF262B31</color>
+    <color name="bgr">#191C20</color>
+    <color name="chro">#737476</color>
+    <color name="chro_2">#C4C4C4</color>
+    <color name="yellow">#FFFFD600</color>
+    <color name="c_orange">#F58D00</color>
+    <color name="orange_bold">#FFEE5600</color>
+    <color name="unselected">#87909C</color>
+    <color name="c_gray">#333A42</color>
+    <color name="flash">#EEEEEE</color>
+    <color name="back_background">#172339</color>
+    <color name="c_green">#58DB41</color>
+    <color name="yellow_700">#FDC700</color>
+    <color name="c_green_2">#34BE1D</color>
+    <color name="c_red">#D13D3D</color>
+    <color name="c_brown_1">#1F1910</color>
+    <color name="c_brown_2">#382D1C</color>
+    <color name="c_brown_3">#534228</color>
+    <color name="pi_selected_color">#3897F0</color>
+    <color name="pi_default_color">#B2B2B2</color>
+</resources>

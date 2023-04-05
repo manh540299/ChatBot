@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.chatbotai.aichataiart.bus.NetworkState" />
+
+
+        <variable
+            name="isLoadingImage"
+            type="Boolean" />
+
+        <variable
+            name="generateImageProcessViewModel"
+            type="com.chatbotai.aichataiart.viewmodel.GenerateImageProcessViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp">
+
+        <View
+            android:background="@drawable/bg_generating_image"
+            android:visibility="@{isLoadingImage ? View.VISIBLE : View.GONE}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ImageBorder" />
+
+
+        <ImageView
+            android:id="@+id/btnDown"
+            style="@style/ButtonDefault"
+            android:visibility="@{isLoadingImage ? View.GONE : View.VISIBLE}"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_down" />
+
+        <ImageView
+            android:id="@+id/btnZoom"
+            android:visibility="@{isLoadingImage ? View.GONE : View.VISIBLE}"
+            style="@style/ButtonDefault"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_zoom" />
+
+        <ProgressBar
+            style="@style/ContentLoadingProgress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/green_main"
+            android:visibility="@{isLoadingImage ? View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+</layout>

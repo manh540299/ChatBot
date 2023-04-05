@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_menu_top_detail_conversation"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/btnClearHistory"
+        app:layout_constraintLeft_toLeftOf="@id/btnFindMessage"
+        app:layout_constraintRight_toRightOf="@id/btnFindMessage"
+        app:layout_constraintTop_toTopOf="@id/btnFindMessage" />
+
+    <TextView
+        android:id="@+id/btnSelectMode"
+        style="@style/ButtonMenu"
+        android:layout_width="0dp"
+        android:layout_marginStart="@dimen/margin_main"
+        android:layout_marginTop="@dimen/margin_main"
+        android:layout_marginEnd="@dimen/margin_main"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/ripple_top_language"
+        android:text="@string/select_mode"
+        app:drawableStartCompat="@drawable/choice_ic_select_mode_menu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/btnTipsQuestion"
+        style="@style/ButtonMenu"
+        android:layout_width="0dp"
+        android:layout_marginStart="@dimen/margin_main"
+        android:layout_marginEnd="@dimen/margin_main"
+        android:text="@string/tips_question"
+        app:drawableStartCompat="@drawable/ic_suggest_question"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSelectMode" />
+
+    <TextView
+        android:id="@+id/btnFindMessage"
+        style="@style/ButtonMenu"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="@dimen/margin_main"
+        android:layout_marginEnd="@dimen/margin_main"
+        android:text="@string/find_messages"
+        app:drawableStartCompat="@drawable/ic_find_message"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTipsQuestion" />
+
+
+    <TextView
+        android:id="@+id/btnClearHistory"
+        style="@style/ButtonMenu"
+        android:layout_marginBottom="@dimen/margin_main"
+        android:background="@drawable/ripple_bot_language"
+        android:text="@string/clear_history"
+        android:textColor="@color/text_red"
+        app:drawableStartCompat="@drawable/ic_clear_history"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/btnFindMessage"
+        app:layout_constraintRight_toRightOf="@id/btnFindMessage"
+        app:layout_constraintTop_toBottomOf="@id/btnFindMessage" />
+</androidx.constraintlayout.widget.ConstraintLayout>

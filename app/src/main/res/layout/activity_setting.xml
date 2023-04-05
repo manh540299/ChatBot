@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.chatbotai.aichataiart.R" />
+
+        <variable
+            name="isPurchase"
+            type="Boolean" />
+
+        <import type="com.chatbotai.aichataiart.BuildConfig" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                style="@style/ButtonBackToolBar" />
+
+            <TextView
+                android:id="@+id/t1"
+                style="@style/TextComponentToolBar"
+                android:text="@string/settings"
+                app:layout_constraintBottom_toBottomOf="@id/btnBack"
+                app:layout_constraintLeft_toRightOf="@id/btnBack"
+                app:layout_constraintTop_toTopOf="@id/btnBack" />
+
+            <include
+                android:id="@+id/btnPremium"
+                isPurchase="@{isPurchase}"
+                layout="@layout/layout_premium"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="@dimen/margin_main"
+                android:layout_marginTop="@dimen/margin_main"
+                android:layout_marginEnd="@dimen/margin_main"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+            <TextView
+                android:id="@+id/txtSettings"
+                style="@style/Inter_Semi_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_main"
+                android:layout_marginTop="@dimen/margin_top_title_setting"
+                android:text="@string/general"
+                android:textSize="@dimen/size_text_title_setting"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPremium" />
+
+            <View
+                android:id="@+id/viewSettings"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bgr_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnSelectMode"
+                app:layout_constraintLeft_toLeftOf="@id/btnVoice"
+                app:layout_constraintRight_toRightOf="@id/btnVoice"
+                app:layout_constraintTop_toTopOf="@id/btnLanguage" />
+
+            <View
+                android:id="@+id/btnLanguage"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_btn_setting"
+                android:layout_marginTop="@dimen/margin_first_btn_setting"
+                android:layout_marginEnd="@dimen/margin_main"
+                android:background="@drawable/ripple_btn_setting"
+                app:layout_constraintLeft_toLeftOf="@id/txtSettings"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtSettings" />
+
+            <ImageView
+                android:id="@+id/imgLanguage"
+                android:layout_width="@dimen/size_icon_setting"
+                android:layout_height="@dimen/size_icon_setting"
+                android:layout_marginStart="@dimen/margin_icon_setting"
+                android:scaleX="-1"
+                app:layout_constraintBottom_toBottomOf="@id/btnLanguage"
+                app:layout_constraintLeft_toLeftOf="@id/btnLanguage"
+                app:layout_constraintTop_toTopOf="@id/btnLanguage"
+                app:srcCompat="@drawable/ic_translate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_text_setting"
+                android:text="@string/language"
+                android:textSize="@dimen/size_text_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnLanguage"
+                app:layout_constraintLeft_toRightOf="@id/imgLanguage"
+                app:layout_constraintTop_toTopOf="@id/btnLanguage" />
+
+            <ImageView
+                android:layout_width="@dimen/size_icon_more_setting"
+                android:layout_height="@dimen/size_icon_more_setting"
+                android:layout_marginEnd="@dimen/margin_icon_more_setting"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="@id/btnLanguage"
+                app:layout_constraintRight_toRightOf="@id/btnLanguage"
+                app:layout_constraintTop_toTopOf="@id/btnLanguage" />
+
+            <View
+                style="@style/ViewLine"
+                app:layout_constraintLeft_toLeftOf="@id/btnLanguage"
+                app:layout_constraintRight_toRightOf="@id/btnLanguage"
+                app:layout_constraintTop_toBottomOf="@id/btnLanguage" />
+
+            <View
+                android:id="@+id/btnVoice"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_btn_setting"
+                android:background="@drawable/ripple_btn_setting"
+                app:layout_constraintLeft_toLeftOf="@id/txtSettings"
+                app:layout_constraintRight_toRightOf="@id/btnLanguage"
+                app:layout_constraintTop_toBottomOf="@id/btnLanguage" />
+
+            <ImageView
+                android:id="@+id/imgVoice"
+                android:layout_width="@dimen/size_icon_setting"
+                android:layout_height="@dimen/size_icon_setting"
+                android:layout_marginStart="@dimen/margin_icon_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnVoice"
+                app:layout_constraintLeft_toLeftOf="@id/btnVoice"
+                app:layout_constraintTop_toTopOf="@id/btnVoice"
+                app:srcCompat="@drawable/ic_speaker" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_text_setting"
+                android:text="@string/voice"
+                android:textSize="@dimen/size_text_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnVoice"
+                app:layout_constraintLeft_toRightOf="@id/imgLanguage"
+                app:layout_constraintTop_toTopOf="@id/btnVoice" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swVoice"
+                style="@style/Switch_App"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:clickable="false"
+                app:layout_constraintBottom_toBottomOf="@id/btnVoice"
+                app:layout_constraintRight_toRightOf="@id/btnVoice"
+                app:layout_constraintTop_toTopOf="@id/btnVoice" />
+
+
+            <!--            View Select Mode-->
+            <View
+                android:id="@+id/line1"
+                style="@style/ViewLine"
+                app:layout_constraintLeft_toLeftOf="@id/btnLanguage"
+                app:layout_constraintRight_toRightOf="@id/btnLanguage"
+                app:layout_constraintTop_toBottomOf="@id/btnVoice" />
+
+            <View
+                android:id="@+id/btnSelectMode"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_btn_setting"
+                android:background="@drawable/ripple_btn_setting"
+                app:layout_constraintLeft_toLeftOf="@id/txtSettings"
+                app:layout_constraintRight_toRightOf="@id/btnLanguage"
+                app:layout_constraintTop_toBottomOf="@id/line1" />
+
+            <ImageView
+                android:id="@+id/imgSelectMode"
+                android:layout_width="@dimen/size_icon_setting"
+                android:layout_height="@dimen/size_icon_setting"
+                android:layout_marginStart="@dimen/margin_icon_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnSelectMode"
+                app:layout_constraintLeft_toLeftOf="@id/btnSelectMode"
+                app:layout_constraintTop_toTopOf="@id/btnSelectMode"
+                app:srcCompat="@drawable/ic_select_mode" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_text_setting"
+                android:text="@string/select_mode"
+                android:textSize="@dimen/size_text_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnSelectMode"
+                app:layout_constraintLeft_toRightOf="@id/imgSelectMode"
+                app:layout_constraintTop_toTopOf="@id/btnSelectMode" />
+
+
+            <ImageView
+                android:layout_width="@dimen/size_icon_more_setting"
+                android:layout_height="@dimen/size_icon_more_setting"
+                android:layout_marginEnd="@dimen/margin_icon_more_setting"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="@id/btnSelectMode"
+                app:layout_constraintRight_toRightOf="@id/btnSelectMode"
+                app:layout_constraintTop_toTopOf="@id/btnSelectMode" />
+
+
+            <!--            -->
+
+            <View
+                android:id="@+id/viewSupport"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bgr_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnRestore"
+                app:layout_constraintLeft_toLeftOf="@id/btnVoice"
+                app:layout_constraintRight_toRightOf="@id/btnVoice"
+                app:layout_constraintTop_toTopOf="@id/btnHelp" />
+
+            <TextView
+                android:id="@+id/txtSupport"
+                style="@style/Inter_Semi_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_title_setting"
+                android:text="@string/support"
+                android:textSize="@dimen/size_text_title_setting"
+                app:layout_constraintLeft_toLeftOf="@id/viewSupport"
+                app:layout_constraintTop_toBottomOf="@id/viewSettings" />
+
+            <View
+                android:id="@+id/btnHelp"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_btn_setting"
+                android:layout_marginTop="@dimen/margin_first_btn_setting"
+                android:background="@drawable/ripple_btn_setting"
+                app:layout_constraintLeft_toLeftOf="@id/txtSettings"
+                app:layout_constraintRight_toRightOf="@id/btnLanguage"
+                app:layout_constraintTop_toBottomOf="@id/txtSupport" />
+
+            <ImageView
+                android:id="@+id/imgHelp"
+                android:layout_width="@dimen/size_icon_setting"
+                android:layout_height="@dimen/size_icon_setting"
+                android:layout_marginStart="@dimen/margin_icon_setting"
+                android:src="@drawable/ic_help"
+                app:layout_constraintBottom_toBottomOf="@id/btnHelp"
+                app:layout_constraintLeft_toLeftOf="@id/btnHelp"
+                app:layout_constraintTop_toTopOf="@id/btnHelp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_text_setting"
+                android:text="@string/help"
+
+                android:textSize="@dimen/size_text_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnHelp"
+                app:layout_constraintLeft_toRightOf="@id/imgHelp"
+                app:layout_constraintTop_toTopOf="@id/btnHelp" />
+
+            <ImageView
+                android:layout_width="@dimen/size_icon_more_setting"
+                android:layout_height="@dimen/size_icon_more_setting"
+                android:layout_marginEnd="@dimen/margin_icon_more_setting"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="@id/btnHelp"
+                app:layout_constraintRight_toRightOf="@id/btnHelp"
+                app:layout_constraintTop_toTopOf="@id/btnHelp" />
+
+            <View
+                style="@style/ViewLine"
+                app:layout_constraintLeft_toLeftOf="@id/btnHelp"
+                app:layout_constraintRight_toRightOf="@id/btnHelp"
+                app:layout_constraintTop_toBottomOf="@id/btnHelp" />
+
+            <View
+                android:id="@+id/btnRestore"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_btn_setting"
+                android:background="@drawable/ripple_btn_setting"
+                app:layout_constraintLeft_toLeftOf="@id/txtSettings"
+                app:layout_constraintRight_toRightOf="@id/btnLanguage"
+                app:layout_constraintTop_toBottomOf="@id/btnHelp" />
+
+            <ImageView
+                android:id="@+id/imgRestore"
+                android:layout_width="@dimen/size_icon_setting"
+                android:layout_height="@dimen/size_icon_setting"
+                android:layout_marginStart="@dimen/margin_icon_setting"
+                android:src="@drawable/ic_restore"
+                app:layout_constraintBottom_toBottomOf="@id/btnRestore"
+                app:layout_constraintLeft_toLeftOf="@id/btnRestore"
+                app:layout_constraintTop_toTopOf="@id/btnRestore" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_text_setting"
+                android:text="@string/restore_purchases"
+
+                android:textSize="@dimen/size_text_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnRestore"
+                app:layout_constraintLeft_toRightOf="@id/imgRestore"
+                app:layout_constraintTop_toTopOf="@id/btnRestore" />
+
+            <ImageView
+                android:layout_width="@dimen/size_icon_more_setting"
+                android:layout_height="@dimen/size_icon_more_setting"
+                android:layout_marginEnd="@dimen/margin_icon_more_setting"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="@id/btnRestore"
+                app:layout_constraintRight_toRightOf="@id/btnRestore"
+                app:layout_constraintTop_toTopOf="@id/btnRestore" />
+
+            <TextView
+                android:id="@+id/txtTitleAbout"
+                style="@style/Inter_Semi_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_title_setting"
+                android:text="@string/about"
+                android:textSize="@dimen/size_text_title_setting"
+                app:layout_constraintLeft_toLeftOf="@id/viewSupport"
+                app:layout_constraintTop_toBottomOf="@id/viewSupport" />
+
+            <View
+                android:id="@+id/viewAbout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bgr_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnVersion"
+                app:layout_constraintLeft_toLeftOf="@id/btnVoice"
+                app:layout_constraintRight_toRightOf="@id/btnVoice"
+                app:layout_constraintTop_toTopOf="@id/btnRate" />
+
+            <View
+                android:id="@+id/btnRate"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_btn_setting"
+                android:layout_marginTop="@dimen/margin_first_btn_setting"
+                android:background="@drawable/ripple_btn_setting"
+                app:layout_constraintLeft_toLeftOf="@id/txtSettings"
+                app:layout_constraintRight_toRightOf="@id/btnLanguage"
+                app:layout_constraintTop_toBottomOf="@id/txtTitleAbout" />
+
+            <ImageView
+                android:id="@+id/imgRate"
+                android:layout_width="@dimen/size_icon_setting"
+                android:layout_height="@dimen/size_icon_setting"
+                android:layout_marginStart="@dimen/margin_icon_setting"
+                android:src="@drawable/ic_start"
+                app:layout_constraintBottom_toBottomOf="@id/btnRate"
+                app:layout_constraintLeft_toLeftOf="@id/btnRate"
+                app:layout_constraintTop_toTopOf="@id/btnRate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_text_setting"
+                android:text="@string/rate_us"
+                android:textSize="@dimen/size_text_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnRate"
+                app:layout_constraintLeft_toRightOf="@id/imgRate"
+                app:layout_constraintTop_toTopOf="@id/btnRate" />
+
+            <ImageView
+                android:layout_width="@dimen/size_icon_more_setting"
+                android:layout_height="@dimen/size_icon_more_setting"
+                android:layout_marginEnd="@dimen/margin_icon_more_setting"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="@id/btnRate"
+                app:layout_constraintRight_toRightOf="@id/btnRate"
+                app:layout_constraintTop_toTopOf="@id/btnRate" />
+
+            <View
+                style="@style/ViewLine"
+                app:layout_constraintLeft_toLeftOf="@id/btnRate"
+                app:layout_constraintRight_toRightOf="@id/btnRate"
+                app:layout_constraintTop_toBottomOf="@id/btnRate" />
+
+            <View
+                android:id="@+id/btnShare"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_btn_setting"
+                android:background="@drawable/ripple_btn_setting"
+                app:layout_constraintLeft_toLeftOf="@id/txtSettings"
+                app:layout_constraintRight_toRightOf="@id/btnLanguage"
+                app:layout_constraintTop_toBottomOf="@id/btnRate" />
+
+            <ImageView
+                android:id="@+id/imgShare"
+                android:layout_width="@dimen/size_icon_setting"
+                android:layout_height="@dimen/size_icon_setting"
+                android:layout_marginStart="@dimen/margin_icon_setting"
+                android:src="@drawable/ic_share_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnShare"
+                app:layout_constraintLeft_toLeftOf="@id/btnShare"
+                app:layout_constraintTop_toTopOf="@id/btnShare" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_text_setting"
+                android:text="@string/share_with_friends"
+                android:textSize="@dimen/size_text_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnShare"
+                app:layout_constraintLeft_toRightOf="@id/imgShare"
+                app:layout_constraintTop_toTopOf="@id/btnShare" />
+
+            <ImageView
+                android:layout_width="@dimen/size_icon_more_setting"
+                android:layout_height="@dimen/size_icon_more_setting"
+                android:layout_marginEnd="@dimen/margin_icon_more_setting"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="@id/btnShare"
+                app:layout_constraintRight_toRightOf="@id/btnShare"
+                app:layout_constraintTop_toTopOf="@id/btnShare" />
+
+            <View
+                style="@style/ViewLine"
+                app:layout_constraintLeft_toLeftOf="@id/btnShare"
+                app:layout_constraintRight_toRightOf="@id/btnShare"
+                app:layout_constraintTop_toBottomOf="@id/btnShare" />
+
+            <View
+                android:id="@+id/btnTermsOfUse"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_btn_setting"
+                android:background="@drawable/ripple_btn_setting"
+                app:layout_constraintLeft_toLeftOf="@id/btnShare"
+                app:layout_constraintRight_toRightOf="@id/btnShare"
+                app:layout_constraintTop_toBottomOf="@id/btnShare" />
+
+            <ImageView
+                android:id="@+id/imgTerms"
+                android:layout_width="@dimen/size_icon_setting"
+                android:layout_height="@dimen/size_icon_setting"
+                android:layout_marginStart="@dimen/margin_icon_setting"
+                android:src="@drawable/ic_term"
+                app:layout_constraintBottom_toBottomOf="@id/btnTermsOfUse"
+                app:layout_constraintLeft_toLeftOf="@id/btnTermsOfUse"
+                app:layout_constraintTop_toTopOf="@id/btnTermsOfUse" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_text_setting"
+                android:text="@string/terms_settings"
+
+                android:textSize="@dimen/size_text_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnTermsOfUse"
+                app:layout_constraintLeft_toRightOf="@id/imgTerms"
+                app:layout_constraintTop_toTopOf="@id/btnTermsOfUse" />
+
+            <ImageView
+                android:layout_width="@dimen/size_icon_more_setting"
+                android:layout_height="@dimen/size_icon_more_setting"
+                android:layout_marginEnd="@dimen/margin_icon_more_setting"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="@id/btnTermsOfUse"
+                app:layout_constraintRight_toRightOf="@id/btnTermsOfUse"
+                app:layout_constraintTop_toTopOf="@id/btnTermsOfUse" />
+
+
+            <View
+                style="@style/ViewLine"
+                app:layout_constraintLeft_toLeftOf="@id/btnTermsOfUse"
+                app:layout_constraintRight_toRightOf="@id/btnTermsOfUse"
+                app:layout_constraintTop_toBottomOf="@id/btnTermsOfUse" />
+
+            <View
+                android:id="@+id/btnPolicy"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_btn_setting"
+                android:background="@drawable/ripple_btn_setting"
+                app:layout_constraintLeft_toLeftOf="@id/btnTermsOfUse"
+                app:layout_constraintRight_toRightOf="@id/btnTermsOfUse"
+                app:layout_constraintTop_toBottomOf="@id/btnTermsOfUse" />
+
+            <ImageView
+                android:id="@+id/imgPolicy"
+                android:layout_width="@dimen/size_icon_setting"
+                android:layout_height="@dimen/size_icon_setting"
+                android:layout_marginStart="@dimen/margin_icon_setting"
+                android:src="@drawable/ic_policy"
+                app:layout_constraintBottom_toBottomOf="@id/btnPolicy"
+                app:layout_constraintLeft_toLeftOf="@id/btnPolicy"
+                app:layout_constraintTop_toTopOf="@id/btnPolicy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_text_setting"
+                android:text="@string/privacy_policy"
+                android:textSize="@dimen/size_text_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnPolicy"
+                app:layout_constraintLeft_toRightOf="@id/imgPolicy"
+                app:layout_constraintTop_toTopOf="@id/btnPolicy" />
+
+            <ImageView
+                android:layout_width="@dimen/size_icon_more_setting"
+                android:layout_height="@dimen/size_icon_more_setting"
+                android:layout_marginEnd="@dimen/margin_icon_more_setting"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="@id/btnPolicy"
+                app:layout_constraintRight_toRightOf="@id/btnPolicy"
+                app:layout_constraintTop_toTopOf="@id/btnPolicy" />
+
+            <View
+                style="@style/ViewLine"
+                app:layout_constraintLeft_toLeftOf="@id/btnPolicy"
+                app:layout_constraintRight_toRightOf="@id/btnPolicy"
+                app:layout_constraintTop_toBottomOf="@id/btnPolicy" />
+
+            <View
+                android:id="@+id/btnVersion"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_btn_setting"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/ripple_btn_setting"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/btnPolicy"
+                app:layout_constraintRight_toRightOf="@id/btnPolicy"
+                app:layout_constraintTop_toBottomOf="@id/btnPolicy" />
+
+            <ImageView
+                android:id="@+id/imgVersion"
+                android:layout_width="@dimen/size_icon_setting"
+                android:layout_height="@dimen/size_icon_setting"
+                android:layout_marginStart="@dimen/margin_icon_setting"
+                android:src="@drawable/ic_version"
+                app:layout_constraintBottom_toBottomOf="@id/btnVersion"
+                app:layout_constraintLeft_toLeftOf="@id/btnVersion"
+                app:layout_constraintTop_toTopOf="@id/btnVersion" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_text_setting"
+                android:text="@{String.format(@string/app_version,BuildConfig.VERSION_NAME)}"
+                android:textSize="@dimen/size_text_setting"
+                app:layout_constraintBottom_toBottomOf="@id/btnVersion"
+                app:layout_constraintLeft_toRightOf="@id/imgVersion"
+                app:layout_constraintTop_toTopOf="@id/btnVersion" />
+
+            <ImageView
+                android:layout_width="@dimen/size_icon_more_setting"
+                android:layout_height="@dimen/size_icon_more_setting"
+                android:layout_marginEnd="@dimen/margin_icon_more_setting"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="@id/btnVersion"
+                app:layout_constraintRight_toRightOf="@id/btnVersion"
+                app:layout_constraintTop_toTopOf="@id/btnVersion" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

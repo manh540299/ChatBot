@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:background="@color/white">
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/imgFeedBack"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="animation/anim_feedback.json"
+        app:lottie_loop="true" />
+
+    <TextView
+        android:id="@+id/t111"
+        style="@style/Inter_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgFeedBack"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/feedback"
+        android:textColor="@color/black_main"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edtContentFeedBack"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/t111"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="18dp"
+        android:hint="@string/hint_edit_text_feedback"
+        android:background="@drawable/border_edit_text_feedback"
+        android:gravity="top|center"
+        android:inputType="textMultiLine"
+        android:padding="11dp"
+        android:textColor="@color/black_main"
+        android:textColorHint="@color/hint"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/btnSendFeedback"
+        style="@style/Inter_Bold"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/edtContentFeedBack"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/ripple_button_new_chat"
+        android:gravity="center"
+        android:text="@string/send"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/btnLater"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/btnSendFeedback"
+        android:layout_alignStart="@id/btnSendFeedback"
+        android:layout_alignEnd="@id/btnSendFeedback"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/ripple_button_cancel"
+        android:gravity="center"
+        android:text="@string/next_time"
+        android:textColor="@color/green_b"
+        android:textSize="14sp" />
+</RelativeLayout>

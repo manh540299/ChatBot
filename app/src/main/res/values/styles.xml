@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ContentLoadingProgress">
+        <item name="android:layout_width">@dimen/size_process_bar</item>
+        <item name="android:layout_height">@dimen/size_process_bar</item>
+        <item name="android:indeterminateTint">@color/green_main</item>
+    </style>
+
+    <style name="CustomMaterialDialog" parent="@style/Theme.MaterialComponents.Dialog">
+        <item name="dialogCornerRadius">14dp</item>
+    </style>
+
+    <style name="DefaultDialog" parent="@style/Theme.MaterialComponents.Dialog">
+        <item name="dialogCornerRadius">14dp</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+
+    </style>
+
+    <style name="DialogAnim">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_bottom</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Switch_App" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="thumbTint">@drawable/switch_thumb</item>
+        <item name="trackTint">@drawable/switch_track</item>
+    </style>
+</resources>

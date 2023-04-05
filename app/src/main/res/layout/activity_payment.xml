@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.chatbotai.aichataiart.R" />
+
+        <variable
+            name="paymentViewModel"
+            type="com.chatbotai.aichataiart.viewmodel.PaymentViewModel" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        tools:context=".view.activity.PaymentActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rootView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/btnClose"
+                android:layout_width="@dimen/size_button_normal"
+                android:layout_height="@dimen/size_button_normal"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="@dimen/margin_default_app"
+                android:background="@drawable/ripple_button_normal_circle"
+                android:padding="@dimen/padding_button_normal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtChosePlan"
+                style="@style/Inter_ExtraBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_main"
+                android:layout_marginTop="6dp"
+                android:text="@string/choose"
+                android:textAllCaps="true"
+                android:textColor="@color/green_main"
+                android:textSize="27sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnClose" />
+
+            <TextView
+                android:id="@+id/txtYourPlan"
+                style="@style/Inter_ExtraBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="@string/your_plan"
+                android:textAllCaps="true"
+                android:textColor="@color/black_main"
+                android:textSize="27sp"
+                app:layout_constraintLeft_toRightOf="@+id/txtChosePlan"
+                app:layout_constraintTop_toTopOf="@id/txtChosePlan" />
+
+
+            <TextView
+                android:id="@+id/txtUpgradePremium"
+                style="@style/Inter_Semi_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_item"
+                android:text="@string/get_access_to"
+                android:textColor="@color/black_main"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@+id/txtChosePlan"
+                app:layout_constraintTop_toBottomOf="@+id/txtChosePlan" />
+
+            <include
+                android:id="@+id/layoutBenefit"
+                layout="@layout/layout_benefit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="@dimen/margin_main"
+                app:layout_constraintLeft_toLeftOf="@+id/txtChosePlan"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtUpgradePremium" />
+
+
+            <!--        Button Price Year-->
+            <View
+                android:id="@+id/btnSelectYear"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="42dp"
+                android:background="@{paymentViewModel.isSelectedYearly ? @drawable/ripple_button_payment_selected : @drawable/ripple_button_payment_unselect}"
+                app:layout_constraintLeft_toLeftOf="@+id/layoutBenefit"
+                app:layout_constraintRight_toRightOf="@+id/layoutBenefit"
+                app:layout_constraintTop_toBottomOf="@+id/layoutBenefit" />
+
+            <ImageView
+                android:id="@+id/imgCheckBoxYear"
+                image_from_drawable="@{paymentViewModel.isSelectedYearly ? @drawable/ic_check_box_payment : @drawable/ic_uncheck_price}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnSelectYear"
+                app:layout_constraintLeft_toLeftOf="@id/btnSelectYear"
+                app:layout_constraintTop_toTopOf="@id/btnSelectYear" />
+
+            <TextView
+                android:id="@+id/txtYear"
+                style="@style/Inter_Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:lines="1"
+                android:text="@{paymentViewModel.isPriceOne().name}"
+                android:textColor="@{paymentViewModel.isSelectedYearly() ? @color/black_main : @color/dark_premium}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/imgCheckBoxYear"
+                app:layout_constraintLeft_toRightOf="@id/imgCheckBoxYear"
+                app:layout_constraintRight_toLeftOf="@+id/txtPricesMonthOfYear"
+                app:layout_constraintTop_toTopOf="@id/imgCheckBoxYear" />
+
+            <TextView
+                android:id="@+id/txtPricesYear"
+                style="@style/Inter_Semi_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_main"
+                android:text="@{paymentViewModel.isPriceOne().prices}"
+                android:textColor="@{paymentViewModel.isSelectedYearly() ? @color/black_main : @color/dark_premium}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/txtPricesMonthOfYear"
+                app:layout_constraintRight_toRightOf="@id/btnSelectYear"
+                app:layout_constraintTop_toTopOf="@id/imgCheckBoxYear"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtPricesMonthOfYear"
+                style="@style/Inter_Semi_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{paymentViewModel.isPriceOne().priceOfMonth}"
+                android:textColor="@{paymentViewModel.isSelectedYearly() ? @color/black_main : @color/dark_premium}"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/imgCheckBoxYear"
+                app:layout_constraintRight_toLeftOf="@id/txtMonth"
+                app:layout_constraintTop_toBottomOf="@id/txtPricesYear" />
+
+            <TextView
+                android:id="@+id/txtMonth"
+                style="@style/Inter_Semi_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_main"
+                android:text="/month"
+                android:textColor="@{paymentViewModel.isSelectedYearly() ? @color/black_main : @color/dark_premium}"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/txtPricesMonthOfYear"
+                app:layout_constraintRight_toRightOf="@id/btnSelectYear"
+                app:layout_constraintTop_toTopOf="@id/txtPricesMonthOfYear" />
+
+
+            <ProgressBar
+                style="@style/ContentLoadingProgress"
+                android:visibility="@{paymentViewModel.isPriceOne().prices.empty ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/txtPricesYear"
+                app:layout_constraintRight_toRightOf="@id/txtPricesYear"
+                app:layout_constraintTop_toTopOf="@id/txtPricesYear" />
+
+
+            <TextView
+                android:id="@+id/txt3DayFreeTrial"
+                style="@style/Inter_Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/bg_bestvalue"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="4dp"
+                android:text="@string/best_value"
+                android:textColor="@color/black_main"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@id/btnSelectYear"
+                app:layout_constraintRight_toRightOf="@id/btnSelectYear"
+                app:layout_constraintTop_toTopOf="@id/btnSelectYear" />
+            <!--        Button Price Week-->
+            <View
+                android:id="@+id/btnSelectWeek"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="@dimen/margin_item"
+                android:background="@{paymentViewModel.isSelectedYearly ? @drawable/ripple_button_payment_unselect : @drawable/ripple_button_payment_selected}"
+                app:layout_constraintLeft_toLeftOf="@+id/layoutBenefit"
+                app:layout_constraintRight_toRightOf="@+id/layoutBenefit"
+                app:layout_constraintTop_toBottomOf="@+id/btnSelectYear" />
+
+            <ImageView
+                android:id="@+id/imgCheckBoxWeek"
+                image_from_drawable="@{paymentViewModel.isSelectedYearly ? @drawable/ic_uncheck_price : @drawable/ic_check_box_payment}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnSelectWeek"
+                app:layout_constraintLeft_toLeftOf="@id/btnSelectWeek"
+                app:layout_constraintTop_toTopOf="@id/btnSelectWeek" />
+
+            <TextView
+                android:id="@+id/txtWeek"
+                style="@style/Inter_Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:lines="1"
+                android:text="@{paymentViewModel.isPriceTwo().name}"
+                android:textColor="@{!paymentViewModel.isSelectedYearly() ? @color/black_main : @color/dark_premium}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/imgCheckBoxWeek"
+                app:layout_constraintLeft_toRightOf="@id/imgCheckBoxWeek"
+                app:layout_constraintRight_toLeftOf="@+id/txtPricesWeek"
+                app:layout_constraintTop_toTopOf="@id/imgCheckBoxWeek" />
+
+            <TextView
+                android:id="@+id/txtPricesWeek"
+                style="@style/Inter_Semi_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_main"
+                android:text="@{paymentViewModel.isPriceTwo().prices}"
+                android:textColor="@{!paymentViewModel.isSelectedYearly() ? @color/black_main : @color/dark_premium}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/imgCheckBoxWeek"
+                app:layout_constraintRight_toRightOf="@id/btnSelectWeek"
+                app:layout_constraintTop_toTopOf="@id/imgCheckBoxWeek" />
+
+            <ProgressBar
+                style="@style/ContentLoadingProgress"
+                android:visibility="@{paymentViewModel.isPriceTwo().prices.empty ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/txtPricesWeek"
+                app:layout_constraintRight_toRightOf="@id/txtPricesWeek"
+                app:layout_constraintTop_toTopOf="@id/txtPricesWeek" />
+
+
+            <!--        Button Upgrade Now-->
+
+
+            <View
+                android:id="@+id/btnUpgradeNow"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/ripple_button_continue"
+                android:elevation="6dp"
+                app:layout_constraintLeft_toLeftOf="@+id/layoutBenefit"
+                app:layout_constraintRight_toRightOf="@+id/layoutBenefit"
+                app:layout_constraintTop_toBottomOf="@+id/btnSelectWeek" />
+
+            <TextView
+                android:id="@+id/txtUpgradeNow"
+                style="@style/Inter_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="12dp"
+                android:elevation="7dp"
+                android:text="@string/_continue"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/btnUpgradeNow"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="@id/btnUpgradeNow"
+                app:layout_constraintRight_toRightOf="@+id/btnUpgradeNow"
+                app:layout_constraintTop_toTopOf="@+id/btnUpgradeNow" />
+
+            <ProgressBar
+                android:id="@+id/processLoadingPay"
+                style="@style/ContentLoadingProgress"
+                android:elevation="7dp"
+                android:visibility="@{paymentViewModel.isPayingIap ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/imgContinue"
+                app:layout_constraintLeft_toLeftOf="@id/imgContinue"
+                app:layout_constraintRight_toRightOf="@id/imgContinue"
+                app:layout_constraintTop_toTopOf="@id/imgContinue" />
+
+            <ImageView
+                android:id="@+id/imgContinue"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_main"
+                android:elevation="7dp"
+                android:visibility="@{!paymentViewModel.isPayingIap ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@id/btnUpgradeNow"
+                app:layout_constraintRight_toRightOf="@id/btnUpgradeNow"
+                app:layout_constraintTop_toTopOf="@id/btnUpgradeNow"
+                app:srcCompat="@drawable/ic_continue" />
+
+
+            <View
+                android:id="@+id/viewAlphaHover"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/background_view_holder_payment"
+                app:layout_constraintBottom_toBottomOf="@+id/btnUpgradeNow"
+                app:layout_constraintLeft_toLeftOf="@+id/btnUpgradeNow"
+                app:layout_constraintRight_toRightOf="@+id/btnUpgradeNow"
+                app:layout_constraintTop_toTopOf="@+id/btnUpgradeNow"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <View
+                android:id="@+id/viewAlphaHover1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/background_view_holder_payment"
+                app:layout_constraintBottom_toBottomOf="@+id/btnUpgradeNow"
+                app:layout_constraintLeft_toLeftOf="@+id/btnUpgradeNow"
+                app:layout_constraintRight_toRightOf="@+id/btnUpgradeNow"
+                app:layout_constraintTop_toTopOf="@+id/btnUpgradeNow"
+                app:layout_constraintWidth_percent="0.8" />
+
+
+            <View
+                android:id="@+id/viewAlphaHover2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/background_view_holder_payment"
+                app:layout_constraintBottom_toBottomOf="@+id/btnUpgradeNow"
+                app:layout_constraintLeft_toLeftOf="@+id/btnUpgradeNow"
+                app:layout_constraintRight_toRightOf="@+id/btnUpgradeNow"
+                app:layout_constraintTop_toTopOf="@+id/btnUpgradeNow"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <View
+                android:id="@+id/viewAlphaHover3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/background_view_holder_payment"
+                app:layout_constraintBottom_toBottomOf="@+id/btnUpgradeNow"
+                app:layout_constraintLeft_toLeftOf="@+id/btnUpgradeNow"
+                app:layout_constraintRight_toRightOf="@+id/btnUpgradeNow"
+                app:layout_constraintTop_toTopOf="@+id/btnUpgradeNow"
+                app:layout_constraintWidth_percent="0.8" />
+
+
+            <View
+                android:id="@+id/viewAlphaHover4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/background_view_holder_payment"
+                app:layout_constraintBottom_toBottomOf="@+id/btnUpgradeNow"
+                app:layout_constraintLeft_toLeftOf="@+id/btnUpgradeNow"
+                app:layout_constraintRight_toRightOf="@+id/btnUpgradeNow"
+                app:layout_constraintTop_toTopOf="@+id/btnUpgradeNow"
+                app:layout_constraintWidth_percent="0.8" />
+
+
+            <TextView
+                android:id="@+id/txtCancelAnytime"
+                style="@style/Inter_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default_app"
+                android:text="@string/cancel_anytime"
+                android:textColor="@color/black_main"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnUpgradeNow" />
+
+            <TextView
+                android:id="@+id/btnTermsOfUse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_default_app"
+                android:background="@drawable/ripple_button_only_text_view"
+                android:text="@string/terms_of_use_underline"
+                android:textColor="@color/black_main"
+                android:textSize="12sp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="@id/btnUpgradeNow"
+                app:layout_constraintTop_toBottomOf="@+id/txtCancelAnytime" />
+
+
+            <TextView
+                android:id="@+id/btnPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_button_only_text_view"
+                android:text="@string/privacy_policy_u"
+                android:textColor="@color/black_main"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnTermsOfUse"
+                app:layout_constraintRight_toRightOf="@id/btnUpgradeNow"
+                app:layout_constraintTop_toTopOf="@+id/btnTermsOfUse" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="@dimen/margin_main"
+                android:gravity="center"
+                android:text="@string/content_sub"
+                android:textColor="@color/black_main"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/btnUpgradeNow"
+                app:layout_constraintRight_toRightOf="@id/btnUpgradeNow"
+                app:layout_constraintTop_toBottomOf="@id/btnTermsOfUse" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+</layout>

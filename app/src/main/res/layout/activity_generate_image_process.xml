@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.chatbotai.aichataiart.bus.NetworkState" />
+
+        <import type="com.chatbotai.aichataiart.R" />
+
+        <variable
+            name="isLoadingImage"
+            type="Boolean" />
+
+        <variable
+            name="generateHandleClick"
+            type="com.chatbotai.aichataiart.view.activity.GenerateHandleClick" />
+
+        <variable
+            name="generateImageProcessViewModel"
+            type="com.chatbotai.aichataiart.viewmodel.GenerateImageProcessViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.GenerateImageProcessActivity">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            style="@style/ButtonBackToolBar" />
+
+        <TextView
+            android:id="@+id/t1"
+            style="@style/TextComponentToolBar"
+            android:layout_width="0dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/generate_image"
+            app:layout_constraintBottom_toBottomOf="@id/btnBack"
+            app:layout_constraintLeft_toRightOf="@id/btnBack"
+            app:layout_constraintTop_toTopOf="@id/btnBack" />
+
+
+        <View
+            android:id="@+id/viewBg"
+            background_generate_image="@{generateImageProcessViewModel.networkState}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_main"
+            android:layout_marginTop="@dimen/margin_main"
+            android:layout_marginEnd="@dimen/margin_main"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtStateProcess"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+        <TextView
+            android:id="@+id/txtStateProcess"
+            content_state_generate="@{generateImageProcessViewModel.networkState}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textColor="@{generateImageProcessViewModel.networkState.status == NetworkState.State.FAILED ? @color/text_red : @color/dark_generate_image}"
+            app:layout_constraintBottom_toTopOf="@id/btnStop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/btnStop"
+            style="@style/TextViewButtonDefault"
+            state_button_stop_generate_image="@{generateImageProcessViewModel.networkState}"
+            android:layout_marginBottom="40dp"
+            android:onClick="@{() -> generateHandleClick.stopClick(generateImageProcessViewModel.networkState)}"
+            android:text="@string/stop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            image_resource="@{R.drawable.img_generate_error}"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:visibility="@{(generateImageProcessViewModel.networkState.status == NetworkState.State.FAILED) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/viewBg"
+            app:layout_constraintLeft_toLeftOf="@+id/viewBg"
+            app:layout_constraintRight_toRightOf="@+id/viewBg"
+            app:layout_constraintTop_toTopOf="@+id/viewBg" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationGenerateImage"
+            animation_generate_image="@{generateImageProcessViewModel.networkState}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/viewBg"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintLeft_toLeftOf="@id/viewBg"
+            app:layout_constraintRight_toRightOf="@id/viewBg"
+            app:layout_constraintTop_toTopOf="@id/viewBg"
+            app:layout_constraintWidth_percent="0.5"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="animation/loading.json"
+            app:lottie_loop="true" />
+
+        <ProgressBar
+            style="@style/ContentLoadingProgress"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:indeterminateTint="@color/green_main"
+            android:visibility="@{isLoadingImage ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/viewBg"
+            app:layout_constraintLeft_toLeftOf="@id/viewBg"
+            app:layout_constraintRight_toRightOf="@id/viewBg"
+            app:layout_constraintTop_toTopOf="@id/viewBg" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgPreview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            android:visibility="@{(generateImageProcessViewModel.networkState.status == NetworkState.State.LOADED) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/viewBg"
+            app:layout_constraintLeft_toLeftOf="@id/viewBg"
+            app:layout_constraintRight_toRightOf="@id/viewBg"
+            app:layout_constraintTop_toTopOf="@id/viewBg"
+            app:shapeAppearanceOverlay="@style/ImageBorder"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="isPurchase"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_view_main"
+        android:visibility="@{isPurchase ? View.GONE : View.VISIBLE}"
+        android:background="@drawable/ripple_button_premium_main">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationPremium"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="@dimen/margin_item"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="animation/gif_premium.json"
+            app:lottie_loop="true" />
+
+
+        <TextView
+            style="@style/Inter_Semi_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="@dimen/margin_default_app"
+            android:text="@string/content_premium"
+            android:textColor="@color/black_main"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/animationPremium"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

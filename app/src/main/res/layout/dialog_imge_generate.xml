@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_item"
+        android:layout_marginEnd="@dimen/margin_item"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@id/btnShare"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ImageBorder" />
+
+    <ImageView
+        android:id="@+id/btnDismiss"
+        style="@style/ButtonDefault"
+        android:layout_marginEnd="@dimen/margin_default_app"
+        android:layout_marginBottom="@dimen/margin_default_app"
+        android:src="@drawable/zoom_out"
+        app:layout_constraintBottom_toBottomOf="@id/img"
+        app:layout_constraintRight_toRightOf="@id/img" />
+
+    <View
+        android:id="@+id/btnShare"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ripple_button_share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnDownload" />
+
+    <TextView
+        android:id="@+id/tvShare"
+        style="@style/Inter_Semi_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/share"
+        android:textColor="@color/purple"
+        app:layout_constraintBottom_toBottomOf="@id/btnShare"
+        app:layout_constraintLeft_toRightOf="@id/imgShare"
+        app:layout_constraintRight_toRightOf="@id/btnShare"
+        app:layout_constraintTop_toTopOf="@id/btnShare" />
+
+    <ImageView
+        android:id="@+id/imgShare"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:src="@drawable/share_image"
+        app:layout_constraintBottom_toBottomOf="@id/btnShare"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="@id/btnShare"
+        app:layout_constraintRight_toLeftOf="@id/tvShare"
+        app:layout_constraintTop_toTopOf="@id/btnShare" />
+
+    <View
+        android:id="@+id/btnDownload"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/ripple_button_download"
+        app:layout_constraintBottom_toBottomOf="@id/btnShare"
+        app:layout_constraintLeft_toRightOf="@id/btnShare"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnShare" />
+
+    <TextView
+        android:id="@+id/tvDown"
+        style="@style/Inter_Semi_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/download"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/btnDownload"
+        app:layout_constraintLeft_toRightOf="@id/imgDown"
+        app:layout_constraintRight_toRightOf="@id/btnDownload"
+        app:layout_constraintTop_toTopOf="@id/btnDownload" />
+
+    <ImageView
+        android:id="@+id/imgDown"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:src="@drawable/down_image"
+        app:layout_constraintBottom_toBottomOf="@id/btnDownload"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="@id/btnDownload"
+        app:layout_constraintRight_toLeftOf="@id/tvDown"
+        app:layout_constraintTop_toTopOf="@id/btnDownload" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

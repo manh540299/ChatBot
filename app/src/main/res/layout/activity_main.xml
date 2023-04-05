@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.chatbotai.aichataiart.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isPurchase"
+            type="Boolean" />
+
+        <variable
+            name="mainViewModel"
+            type="com.chatbotai.aichataiart.viewmodel.MainViewModel" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        tools:context=".view.activity.MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtNameApp"
+                style="@style/Inter_ExtraBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_main"
+                android:text="@string/app_name"
+                android:textColor="@color/black_main"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnSetting"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btnSetting" />
+
+
+            <ImageView
+                android:id="@+id/btnSetting"
+                style="@style/ButtonDefault"
+                android:layout_marginTop="@dimen/margin_toolbar_top"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_setting" />
+
+            <include
+                android:id="@+id/btnPremium"
+                isPurchase="@{isPurchase}"
+                layout="@layout/layout_premium"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="@dimen/margin_main"
+                android:layout_marginEnd="@dimen/margin_main"
+                app:layout_constraintLeft_toLeftOf="@+id/txtNameApp"
+                app:layout_constraintRight_toRightOf="@id/btnSetting"
+                app:layout_constraintTop_toBottomOf="@id/txtNameApp" />
+
+
+            <!--        View Question AI-->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/btnQuestionAI"
+                image_resource="@{R.drawable.bg_question_ai}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_item"
+                android:layout_marginEnd="@dimen/margin_main"
+                android:layout_marginBottom="-24dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@id/txtContentQuestion"
+                app:layout_constraintLeft_toLeftOf="@+id/txtNameApp"
+                app:layout_constraintRight_toRightOf="@id/btnSetting"
+                app:layout_constraintTop_toBottomOf="@id/btnPremium"
+                app:shapeAppearanceOverlay="@style/ImageBorder" />
+
+
+            <ImageView
+                android:id="@+id/imgQuestion"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="@dimen/margin_main"
+                app:layout_constraintBottom_toBottomOf="@+id/btnQuestionAI"
+                app:layout_constraintLeft_toLeftOf="@+id/btnQuestionAI"
+                app:layout_constraintTop_toTopOf="@+id/btnQuestionAI"
+                app:srcCompat="@drawable/ic_conversation" />
+
+
+            <TextView
+                android:id="@+id/txtTitleQuestion"
+                style="@style/Inter_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_main"
+                android:text="@string/question_ai"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/txtContentQuestion"
+                app:layout_constraintLeft_toRightOf="@id/imgQuestion"
+                app:layout_constraintTop_toTopOf="@id/imgQuestion" />
+
+            <TextView
+                android:id="@+id/txtContentQuestion"
+                style="@style/Inter_Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/content_question_ai"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/imgQuestion"
+                app:layout_constraintLeft_toLeftOf="@id/txtTitleQuestion"
+                app:layout_constraintTop_toBottomOf="@+id/txtTitleQuestion" />
+
+
+            <!--        View Generate Art-->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/btnGenerate"
+                image_resource="@{R.drawable.bg_generate_ai_art}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_item"
+                android:layout_marginBottom="-24dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@id/txtContentGenerate"
+                app:layout_constraintLeft_toLeftOf="@id/btnQuestionAI"
+                app:layout_constraintRight_toRightOf="@id/btnQuestionAI"
+                app:layout_constraintTop_toBottomOf="@id/btnQuestionAI"
+                app:shapeAppearanceOverlay="@style/ImageBorder" />
+
+
+            <ImageView
+                android:id="@+id/imgGenerate"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="@dimen/margin_main"
+                app:layout_constraintBottom_toBottomOf="@+id/btnGenerate"
+                app:layout_constraintLeft_toLeftOf="@+id/btnGenerate"
+                app:layout_constraintTop_toTopOf="@+id/btnGenerate"
+                app:srcCompat="@drawable/ic_generate_ai_art" />
+
+
+            <TextView
+                android:id="@+id/txtTitleGenerate"
+                style="@style/Inter_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_main"
+                android:text="@string/generate_ai_art"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/txtContentGenerate"
+                app:layout_constraintLeft_toRightOf="@id/imgGenerate"
+                app:layout_constraintTop_toTopOf="@id/imgGenerate" />
+
+            <TextView
+                android:id="@+id/txtContentGenerate"
+                style="@style/Inter_Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/content_generate_art"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/imgGenerate"
+                app:layout_constraintLeft_toLeftOf="@id/txtTitleGenerate"
+                app:layout_constraintTop_toBottomOf="@+id/txtTitleGenerate" />
+
+
+            <com.smarttech.smarttechlibrary.custom_native.TemplateView
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/btnGenerate" />
+
+
+            <TextView
+                android:id="@+id/txtHistory"
+                style="@style/Inter_Semi_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/history"
+                android:textColor="@color/black_main"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@id/btnGenerate"
+                app:layout_constraintTop_toBottomOf="@id/container" />
+
+            <TextView
+                android:id="@+id/btnSeeAll"
+                style="@style/TextViewButtonDefault"
+                android:layout_marginEnd="6dp"
+                android:drawablePadding="6dp"
+                android:text="@string/see_all"
+                android:textColor="@color/green_main"
+                app:drawableEndCompat="@drawable/ic_see_all"
+                app:layout_constraintBottom_toBottomOf="@id/txtHistory"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtHistory" />
+
+
+            <View
+                android:id="@+id/viewHistory"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="@dimen/margin_item"
+                android:layout_marginBottom="@dimen/margin_main"
+                android:background="@drawable/bg_view_history"
+                android:visibility="@{mainViewModel.isEmpty() ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/btnGenerate"
+                app:layout_constraintRight_toRightOf="@id/btnGenerate"
+                app:layout_constraintTop_toBottomOf="@+id/txtHistory" />
+
+            <include
+                isEmpty="@{mainViewModel.isEmpty()}"
+                layout="@layout/layout_no_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/viewHistory"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/viewHistory" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rclHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_marginBottom="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/margin_item"
+                android:paddingBottom="@dimen/margin_item"
+                android:visibility="@{mainViewModel.isEmpty() ? View.GONE : View.VISIBLE}"
+                app:layout_constraintTop_toBottomOf="@+id/txtHistory" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

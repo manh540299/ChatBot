@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="promptHandleClick"
+            type="com.chatbotai.aichataiart.view.adapter.PromptHandleClick" />
+
+        <variable
+            name="prompt"
+            type="com.chatbotai.aichataiart.model.Prompt" />
+    </data>
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tvPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/bgr_txt_prompt"
+        android:onClick="@{() -> promptHandleClick.itemClick(prompt.text)}"
+        android:paddingStart="14dp"
+        android:paddingTop="@dimen/margin_default_app"
+        android:paddingEnd="14dp"
+        android:backgroundTint="@{prompt.check ? @color/purple_light_bgr : @color/grey_b}"
+        android:paddingBottom="@dimen/margin_default_app"
+        android:textColor="@{prompt.check ? @color/purple : @color/black_main}"
+        android:textSize="14sp" />
+</layout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="imageGenerated"
+            type="com.chatbotai.aichataiart.database.model.ImageGenerated" />
+
+        <variable
+            name="imageGeneratedHandleClick"
+            type="com.chatbotai.aichataiart.view.adapter.ImageGeneratedHandleClick" />
+    </data>
+
+
+    <com.google.android.material.imageview.ShapeableImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/imgHistory"
+        image_from_path="@{imageGenerated.path}"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_margin="8dp"
+        android:elevation="6dp"
+        android:onClick="@{() -> imageGeneratedHandleClick.itemClick(imageGenerated)}"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ImageBorder" />
+</layout>

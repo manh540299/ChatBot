@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "190117083437",
+    "project_id": "ai-chatbot---ai-art",
+    "storage_bucket": "ai-chatbot---ai-art.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190117083437:android:9af0de2a439170cc9c7ba4",
+        "android_client_info": {
+          "package_name": "com.chatbotai.aichataiart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190117083437-m2m87v7btjga6a1gdsr97sj5tr0vvnt1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASNPV-83Vk03FyGOrOUs6wNt4BYadsmIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190117083437-m2m87v7btjga6a1gdsr97sj5tr0vvnt1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

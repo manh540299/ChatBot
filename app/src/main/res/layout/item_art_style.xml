@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="styleArtHandleClick"
+            type="com.chatbotai.aichataiart.view.adapter.StyleArtHandleClick" />
+
+        <variable
+            name="artStyle"
+            type="com.chatbotai.aichataiart.model.ArtStyle" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="96dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="6dp"
+        android:onClick="@{() -> styleArtHandleClick.itemClick(artStyle.text)}"
+        android:layout_marginEnd="6dp">
+
+        <ImageView
+            android:id="@+id/imgStyleArt"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="2.5dp"
+            android:background="@{artStyle.check ? @drawable/bgr_art_style : @drawable/bgr_art_style_unselect}"
+            image_resource="@{artStyle.image}"/>
+
+        <TextView
+            android:id="@+id/tvStyleArt"
+            style="@style/Inter_Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgStyleArt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@{artStyle.text}"
+            android:textColor="@{artStyle.check ? @color/purple : @color/black_main}"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</layout>
