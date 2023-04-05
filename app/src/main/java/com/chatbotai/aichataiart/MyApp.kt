@@ -36,5 +36,6 @@ class MyApp : Application() {
         } else {
             LogEventUtils.createInstance(this@MyApp)
         }
+        SmartTechInit.setTestDevices(ignoreInstallFromStore = true, isTestBilling = true)
     }
 }
